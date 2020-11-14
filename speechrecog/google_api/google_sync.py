@@ -30,15 +30,16 @@ def transcribe_file(speech_file):
 if __name__=="__main__":
     #data frame
     df=pd.DataFrame()
+    df_error=pd.DataFrame()
     g_trans=[]
     g_name=[]
-    # extract data
+    error_trans=[]
     if "wav" not in os.listdir():
         os.system("wget https://storage.googleapis.com/speechrecogdata/wav.zip")
         os.system("unzip wav.zip")
-    if "trancript" not in os.listdir():
-        os.system("wget https://storage.googleapis.com/speechrecogdata/trancript.zip")
-        os.system("unzip trancript.zip")
+    if "transcript" not in os.listdir():
+        os.system("wget https://storage.googleapis.com/speechrecogdata/transcript.zip")
+        os.system("unzip transcript.zip")
     DATA_DIR = os.getcwd()+ "/wav/"
     for f in os.listdir(DATA_DIR):
         if f[-4:] == ".wav":
@@ -48,14 +49,19 @@ if __name__=="__main__":
 
     df['transcript'] = g_trans
     df['wav'] = g_name
+    df.to_pickle("/home/anwesha/speechrecog/google_api/gapi.pkl")
     print(df)
 
     os.chdir("/home/anwesha/speechrecog/google_api/")
-    DATA_DIR = os.getcwd() + "/trancript/"
+    DATA_DIR = os.getcwd() + "/transcript/"
     error=[]
     for f in os.listdir(DATA_DIR):
         for i in range(len(df)):
             temp=df['wav'][i]
             if (f[:-4]== temp[:-4]):
+                error_trans.append(temp)
                 error.append(wer(DATA_DIR + f, df['transcript'][i]))
-    print(error)
+    df_error['WAV']=error_trans
+    df_error['WER']=error
+    df_error.to_pickle("/home/anwesha/speechrecog/google_api/gapi_WER.pkl")
+    print(df_error)
