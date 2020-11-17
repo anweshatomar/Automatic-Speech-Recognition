@@ -3,7 +3,7 @@ import pandas as pd
 import subprocess
 import pandas as pd
 from jiwer import wer
-
+import sox
 #downloading wav files
 if "wav" not in os.listdir():
     os.system("wget https://storage.googleapis.com/speechrecogdata/wav.zip")
@@ -24,12 +24,12 @@ g_name=[]
 error=[]
 error_trans=[]
 #change the directory to acccess the deeepspeech mdoel
-os.chdir("/home/anwesha/")
+os.chdir("/home/anwesha/Automatic-Speech-Recognition/speechrecog/")
 for i in range(1,val):
     if (i>=1 and i<=9):
        temp=subprocess.check_output("deepspeech --model deepspeech-0.8.1-models.pbmm "
                                                "--scorer deepspeech-0.8.1-models.scorer "
-                                           "--audio /home/anwesha/speechrecog/deepspeech/wav/arctic_a000{}.wav".format(i),shell=True)
+                                           "--audio /home/anwesha/Automatic-Speech-Recognition/speechrecog/deepspeech/wav/arctic_a000{}.wav".format(i),shell=True)
        temp=str(temp)
        n_line='\n'
        n_line=str(n_line)
@@ -39,7 +39,7 @@ for i in range(1,val):
     elif (i>=10 and i<=99):
         temp = subprocess.check_output("deepspeech --model deepspeech-0.8.1-models.pbmm "
                                       "--scorer deepspeech-0.8.1-models.scorer "
-                                      "--audio /home/anwesha/speechrecog/deepspeech/wav/arctic_a00{}.wav".format(i),
+                                      "--audio /home/anwesha/Automatic-Speech-Recognition/speechrecog/deepspeech/wav/arctic_a00{}.wav".format(i),
                                       shell=True)
         temp = str(temp)
         n_line = '\n'
@@ -50,7 +50,7 @@ for i in range(1,val):
     elif (i>=100 and i<=999):
         temp = subprocess.check_output("deepspeech --model deepspeech-0.8.1-models.pbmm "
                                       "--scorer deepspeech-0.8.1-models.scorer "
-                                      "--audio /home/anwesha/speechrecog/deepspeech/wav/arctic_a0{}.wav".format(i),
+                                      "--audio /home/anwesha/Automatic-Speech-Recognition/speechrecog/deepspeech/wav/arctic_a0{}.wav".format(i),
                                       shell=True)
         temp = str(temp)
         n_line = '\n'
