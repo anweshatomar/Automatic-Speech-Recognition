@@ -14,5 +14,5 @@ sudo apt-get install sox
 cd ~
 git clone --branch v0.9.1 https://github.com/mozilla/DeepSpeech
 cd DeepSpeech
-pip3 install --upgrade pip==20.2.2 wheel==0.34.2 setuptools==49.6.0
-pip3 install --upgrade -e .
+sudo -H pip3 install --upgrade pip==20.2.2 wheel==0.34.2 setuptools==49.6.0
+sudo -H pip3 install --upgrade -e .
