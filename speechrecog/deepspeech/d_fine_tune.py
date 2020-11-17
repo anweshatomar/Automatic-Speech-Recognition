@@ -16,7 +16,7 @@ for path in os.listdir(DATA_TEXT):
 df_target=pd.DataFrame()
 df_target['file name']=txt_name
 df_target['transcript']=trans
-df_target.to_pickle("/home/anwesha/Automatic-Speech-Recognition/speechrecog/deepspeech/target_transcripts.pk")
+df_target.to_pickle("/home/anwesha/Automatic-Speech-Recognition/speechrecog/deepspeech/target_transcripts.pkl")
 
 data=pd.read_pickle("dpspeech.pkl")
 rows=len(data)
