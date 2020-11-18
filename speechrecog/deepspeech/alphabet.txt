@@ -1,0 +1,31 @@
+### Reading in the following transcript files: ###
+### ['train.csv'] ###
+### The following unique characters were found in your transcripts: ###
+e
+t
+f
+j
+u
+l
+v
+g
+n
+d
+h
+c
+ 
+q
+a
+b
+y
+'
+i
+k
+o
+x
+s
+m
+r
+z
+p
+w
