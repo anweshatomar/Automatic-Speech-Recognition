@@ -3,9 +3,10 @@ import os
 import pandas as pd
 import csv
 import unicodedata
-#import tensorflow as tf
-#tf.compat.v1.disable_eager_execution()
-#creating dtaa frame with target transcripts
+import warnings
+warnings.simplefilter("ignore")
+
+#creating data frame with target transcripts
 DATA_TEXT=os.getcwd()+"/transcript/"
 trans=[]
 txt_name=[]
