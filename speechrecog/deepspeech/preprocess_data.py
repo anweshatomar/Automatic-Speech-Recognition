@@ -1,6 +1,8 @@
 import os
 import subprocess
 import sox
+import warnings
+warnings.simplefilter("ignore")
 
 #get path to wav files
 DATA_DIR = os.getcwd()+ "/wav/"
